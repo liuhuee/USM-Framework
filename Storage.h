@@ -1,4 +1,5 @@
 #include"USM.h"
+#include"StorageServer.h"
 
 enum StorageStatus
 {
@@ -6,14 +7,13 @@ enum StorageStatus
     UnConnected,
     NoPermission,
     Expire
-
-}
+};
 
 enum StorageType
 {
     VNX,
     VNXe
-}
+};
 
 class Storage
 {
@@ -23,16 +23,16 @@ public:
     {
     }
 
-    bool Connect()
+    virtual bool Connect()
     {
-        cout << "connect to " << _url << endl;
+        cout << "connect to storage " << _url << endl;
     }
-    virtual bool GetPools() = 0;
-    virtual StorageType GetType() = 0;    
-private:
+    //virtual bool GetPools() = 0;
+    //virtual StorageType GetType() = 0;    
+protected:
     string _url;
     string _username;
     string _password;
-
     int _id;
+    StorageServer* storageServer;
 };

@@ -1,8 +1,8 @@
-#include"Storage.h"
+#include"VNXeStorage.h"
 
 int main()
 {
-    Storage* storage = new Storage("http", "user", "pwd");
+    Storage* storage = new VNXeStorage("http", "user", "pwd");
     storage->Connect();
 
     return 0;
